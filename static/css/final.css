@@ -799,10 +799,10 @@ input[type="checkbox"] {
 
 .buttons img,
 .buttons2 img {
-  height: auto;
+  height: 157px;
   margin: 0px;
   opacity: 1;
-  width: -webkit-fill-available;
+  width: inherit;
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
