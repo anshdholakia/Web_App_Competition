@@ -1097,6 +1097,12 @@ h4 {
   align-self: center !important;
 }
 
+#ins{
+  color: #f1f1f1;
+  font-size: 16px;
+  opacity: 0;
+}
+
 #mixbox {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
