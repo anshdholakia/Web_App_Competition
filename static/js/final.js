@@ -138,6 +138,15 @@ function onload() {
 document.getElementById("hamburger").addEventListener('click', () => {
     document.getElementById("menu").classList.toggle("menucomeout");
     if (document.getElementById("menu").classList.contains("menucomeout")) {
+        if (window.innerWidth <= 890) { // If media query matches
+            document.getElementById("dragon").style.left = "11px";
+
+
+        }
+        else {
+            document.getElementById("dragon").style.left = "15px";
+
+        }
         document.getElementById("dragon").style.left = "15px";
         document.getElementById("dragon").style.opacity = "1";
         document.getElementById("dragon").style.zIndex = "101";
@@ -385,6 +394,8 @@ document.querySelectorAll('.subdiv').forEach(button => {
                 // VanillaTilt.init(destroyBox);
                 button.vanillaTilt.destroy();
 
+                document.getElementById('ins').style.opacity="1";
+
                 var audio = new Audio('../static/img/swish.mp3');
                 audio.play();
 
@@ -567,6 +578,7 @@ document.querySelectorAll('.subdiv').forEach(button => {
 
 
                     if (check == 0) {
+                        document.getElementById('ins').style.opacity="0";
                         document.getElementById("hinmixbox").innerText = "Pick Something!";
                         document.getElementById("hinmixbox").style.backgroundColor = "transparent";
                     }
@@ -739,7 +751,6 @@ document.querySelectorAll(".cross").forEach(cross => {
         $($($(cross).parent()).parent()).children(".button_info").css('display', 'flex');
 
         list_of_flipped_cards.splice(list_of_flipped_cards.indexOf($($(cross).parent()).parent().attr("name")), 1);
-        // console.log("The list after popping: ", $($(cross).parent()).parent().attr("name"), ": ", list_of_buttons_in_box);
 
 
     })
