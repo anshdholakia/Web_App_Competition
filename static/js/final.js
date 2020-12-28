@@ -738,7 +738,7 @@ document.querySelectorAll(".cross").forEach(cross => {
         $($($($(cross).parent()).parent()).children(".description")).children(".cross").css('transform', 'translate3d(0px, 0px, 0px)');
         $($($(cross).parent()).parent()).children(".button_info").css('display', 'flex');
 
-        list_of_buttons_in_box.splice(list_of_flipped_cards.indexOf($($(cross).parent()).parent().attr("name")), 1);
+        list_of_flipped_cards.splice(list_of_flipped_cards.indexOf($($(cross).parent()).parent().attr("name")), 1);
         // console.log("The list after popping: ", $($(cross).parent()).parent().attr("name"), ": ", list_of_buttons_in_box);
 
 
