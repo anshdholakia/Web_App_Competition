@@ -47,7 +47,7 @@ const createScene = () => {
   window.addEventListener("resize", handleWindowResize, false);
 
   let loader = new THREE.GLTFLoader();
-  loader.load( "/static/img/durocket.gltf", function(gltf){
+  loader.load( "../img/durocket.gltf", function(gltf){
       rocket = gltf.scene;
       rocket.position.y = 50;
       scene.add(rocket);

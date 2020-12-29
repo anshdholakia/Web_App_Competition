@@ -266,7 +266,7 @@ document.querySelectorAll('.subdiv').forEach(button => {
         if (scanning != 1) {
 
             if (check >= 3 && !checkbox.checked) {
-                var audio = new Audio('../static/img/pop.mp3');
+                var audio = new Audio('../img/pop.mp3');
                 audio.play();
 
                 list_of_buttons_in_box.splice(list_of_buttons_in_box.indexOf(button.getAttribute("name")), 1);
@@ -396,7 +396,7 @@ document.querySelectorAll('.subdiv').forEach(button => {
 
                 document.getElementById('ins').style.opacity="1";
 
-                var audio = new Audio('../static/img/swish.mp3');
+                var audio = new Audio('../img/swish.mp3');
                 audio.play();
 
 
@@ -465,7 +465,7 @@ document.querySelectorAll('.subdiv').forEach(button => {
             else if (!checkbox.checked && check < 3) {
                 if (check < 3 || list_of_buttons_in_box.includes(button.getAttribute("name"))) {
 
-                    var audio = new Audio('../static/img/pop.mp3');
+                    var audio = new Audio('../img/pop.mp3');
                     audio.play();
 
                     list_of_buttons_in_box.splice(list_of_buttons_in_box.indexOf(button.getAttribute("name")), 1);
