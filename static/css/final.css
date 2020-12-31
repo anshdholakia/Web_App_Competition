@@ -54,6 +54,57 @@ html {
   z-index: 2;
 }
 
+#darkme {
+  position: absolute;
+  top: 0px;
+  right: 340px;
+  z-index: 2;
+  margin-bottom: 0px !important;
+  height: fit-content;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#darkmode {
+  display: flex !important;
+  z-index: 3;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  outline: none;
+  width: 90px;
+  height: 40px;
+  background: #efefef;
+
+  -webkit-appearance: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#darkmode::before {
+  content: "Dark Mode";
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  color: #00183f;
+  font-size: 14px;
+  overflow: hidden;
+  align-self: center;
+  transition: all 0.2s ease-in-out;
+}
+
+#darkmode:checked {
+  background: #02203c;
+}
+
+#darkmode:checked::before {
+  content: "Light Mode";
+  color: #efefef;
+}
+
 #body1 {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -73,17 +124,21 @@ html {
   content: "";
   position: absolute;
   top: 0px;
+  bottom: 0px;
   left: 0px;
   z-index: -50;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  background: linear-gradient(#8e9eab, #efefef) !important;
+  background-image: linear-gradient(#8e9eab, #efefef);
+  background-size: cover;
 
   background-color: rgb(0, 0, 0); /*Fallback color*/
   background-color: rgba(0, 0, 0, 0.4); /*Black w/opacity/see-through*/
   filter: blur(0px);
   -webkit-filter: blur(0px);
   background-repeat: repeat;
+  transform-origin: center center 0;
+  transform: translateZ(-1px) scale(2);
   margin: 0px;
 }
 
@@ -339,6 +394,26 @@ html {
   }
 } */
 
+/* .rippleit {
+  position: absolute;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: animate_ripple 1s linear infinite;
+} */
+
+/* @keyframes animate_ripple {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+  }
+} */
+
 #start {
   display: flex;
   justify-content: center;
@@ -417,7 +492,7 @@ html {
   margin: 10px;
   font-size: 3rem;
   text-decoration: none;
-  text-align: center;
+  text-align: end;
   color: #ffcb1b;
   transition: all 0.2s ease-in-out;
 }
@@ -565,10 +640,12 @@ body {
   flex-direction: column;
   height: fit-content;
   background-color: #efefef;
+  text-align: center;
+
   position: relative;
 
   align-items: center !important;
-  margin: 0px auto;
+  margin: 20px auto;
   border-radius: 10px;
   padding: 10px 20px;
 }
@@ -729,7 +806,6 @@ input[type="checkbox"] {
   justify-content: center;
   flex-direction: column;
   border: 10px solid #efefef;
-
   margin: 18px 18px;
   background-color: transparent;
   backface-visibility: hidden;
@@ -777,26 +853,6 @@ input[type="checkbox"] {
   overflow: visible;
 } */
 
-.buttons::after,
-.buttons2::after {
-  content: "Certificates";
-  color: rgb(61, 81, 117);
-  /* text-align: center; */
-  font-size: 3rem;
-  position: absolute;
-  font-weight: bolder;
-  opacity: 0;
-  top: 75%;
-  left: initial;
-  margin: 0px auto;
-  align-self: center;
-}
-
-.buttons:hover .buttons::after,
-.buttons2:hover .buttons2::after {
-  opacity: 0.4;
-}
-
 .buttons img,
 .buttons2 img {
   height: 157px;
@@ -809,6 +865,7 @@ input[type="checkbox"] {
   border-top-right-radius: inherit;
   transform-style: preserve-3d;
 }
+
 
 .buttons:hover,
 .buttons2:hover {
@@ -878,7 +935,7 @@ input[type="checkbox"] {
   align-items: end;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
-  transform: translate3d(0px, 0px, -4px) rotateY(180deg);
+  transform: translate3d(0px, 0px, -4px) perspective(2000px) rotateY(180deg);
   height: 100%;
   display: flex;
   margin: 0px 0px;
@@ -915,6 +972,7 @@ input[type="checkbox"] {
   width: 16px;
   height: 16px;
   border: 2px solid black;
+  transform: translate3d(0px, 0px, 0px);
   transition: all 0.1s ease-in-out;
 }
 
@@ -1097,10 +1155,10 @@ h4 {
   align-self: center !important;
 }
 
-#ins{
+#ins {
   color: #f1f1f1;
-  font-size: 16px;
   opacity: 0;
+  font-size: 18px;
 }
 
 #mixbox {
@@ -1294,6 +1352,11 @@ h4 {
   top: 20px;
 }
 
+#cno1back,
+#degreeback {
+  top: 40px;
+}
+
 @-webkit-keyframes AnimationName3 {
   0% {
     background-position: 0% 33%;
@@ -1339,7 +1402,7 @@ h4 {
   align-items: center;
   border-radius: 10px;
   margin: 60px auto;
-  font-size: 30px;
+  font-size: 35px;
   padding: 10px;
   text-align: center;
   color: white;
@@ -1446,7 +1509,7 @@ h4 {
   -moz-animation: AnimationName3 5s ease infinite;
   animation: AnimationName3 5s ease infinite;
   position: relative;
-  top: 65px;
+  top: 40px;
   height: 40px;
   width: 60px;
   font-weight: 500;
@@ -1562,8 +1625,110 @@ h4 {
   padding: 10px 20px;
 }
 
-.degree--active i::before {
+.degree--active i::before,
+.acc--active i::before {
   content: "\f146" !important;
+}
+
+/* Degree List Starts Here */
+#listofdegrees {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#he {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  text-align: center;
+  align-self: normal;
+  margin-bottom: 60px;
+}
+
+#he h1 {
+  font-size: 49px;
+  align-self: center;
+  /* margin-right: 20%; */
+  margin-left: 35px;
+}
+
+#he .buttoning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+#he button {
+  margin: 0px 20px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#listofdegrees ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  flex-direction: column;
+}
+
+.deg_acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 75%;
+  overflow: hidden;
+  margin: 20px 0px;
+}
+
+.deg_but {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  outline: none;
+  border: 4px solid #00437c;
+  background-color: #00183f;
+  color: #ece9ec;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out;
+
+  margin: 5px auto;
+  width: 95%;
+  padding: 5px 20px;
+  font-size: 22px;
+}
+
+.deg_but i {
+  margin-left: auto;
+}
+
+.acc_container {
+  height: 0px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+
+  width: 90%;
+  transition: all 0.2s ease-in-out;
+  padding: 5px 10px;
+  font-size: 17px;
+}
+
+#listofdegrees hr {
+  color: #00183f;
+  background-color: #00183f;
+  height: 1px;
+  width: 100%;
 }
 
 /* Social Media Handle Starts Here */
@@ -1571,7 +1736,7 @@ h4 {
 #body3 {
   height: fit-content;
   width: 100%;
-  background: linear-gradient(#efefef, #1a032b);
+  background: linear-gradient(#efefef, #efefef, #1a032b);
   display: flex;
   flex-direction: column;
   justify-content: end;
@@ -2012,7 +2177,7 @@ h4 {
     font-size: 80px;
   }
   #degreeback {
-    top: 100px;
+    top: 40px;
   }
   .buttons2 {
     height: 200px;
@@ -2114,6 +2279,12 @@ h4 {
 }
 
 @media (max-width: 870px) {
+  #darkme {
+    position: absolute;
+    top: 0px;
+    right: 270px;
+    z-index: 2;
+  }
   #rightsheety {
     width: 260px;
   }
@@ -2154,7 +2325,12 @@ h4 {
 }
 
 @media (max-width: 780px) {
-  
+  #darkme {
+    position: absolute;
+    top: 0px;
+    right: 260px;
+    z-index: 2;
+  }
   #rightsheety {
     width: 250px;
   }
@@ -2182,6 +2358,9 @@ h4 {
   }
   #degreess ul li button {
     height: 46px;
+  }
+  .deg_but {
+    font-size: 18px;
   }
 
   #text {
@@ -2213,7 +2392,8 @@ h4 {
     font-size: 30px;
   }
 
-  #body3 h1 {
+  #body3 h1,
+  #he h1 {
     font-size: 35px;
   }
 
@@ -2246,9 +2426,18 @@ h4 {
   #body3 h1 {
     font-size: 35px;
   }
+  .deg_but {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 563px) {
+  #darkme {
+    position: absolute;
+    top: 0px;
+    right: 230px;
+    z-index: 2;
+  }
   #rightsheety {
     width: 220px;
   }
@@ -2320,7 +2509,8 @@ h4 {
     left: 10px;
   }
 
-  #body3 h1 {
+  #body3 h1,
+  #he h1 {
     font-size: 30px;
   }
 }
@@ -2328,6 +2518,12 @@ h4 {
 @media (max-width: 435px) {
   #rightsheety::after {
     transform: skewX(30deg);
+  }
+  #darkme {
+    position: absolute;
+    top: 0px;
+    right: 160px;
+    z-index: 2;
   }
 
   #rightsheety {
@@ -2352,20 +2548,25 @@ h4 {
   #banner::before {
     left: 7px;
   }
+  .deg_but {
+    font-size: 10px;
+  }
 
   .smallboxinbutton {
     font-size: 11px;
   }
 
   .alert {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   #degreeheading {
     font-size: 17px;
   }
 
-  #degreeback {
+  #degreeback,
+  #c1back,
+  #cno1back {
     position: relative;
 
     top: 70px;
@@ -2379,14 +2580,21 @@ h4 {
 }
 
 @media (max-width: 375px) {
-  #c1yes, #c1no{
-    margin:0px 25px;
+  #c1yes,
+  #c1no {
+    margin: 0px 25px;
   }
-  #degreess ul li{
+  #degreess ul li {
     font-size: 9px;
   }
-  #submit{
+  #submit {
     font-size: 20px;
+  }
+  #darkme {
+    position: absolute;
+    top: 0px;
+    right: 160px;
+    z-index: 2;
   }
   #rightsheety {
     width: 150px;
@@ -2410,17 +2618,45 @@ h4 {
   #banner::before {
     left: 7px;
   }
+  .alert {
+    font-size: 13px;
+  }
+  #he {
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  #he h1 {
+    margin: 0px;
+    margin-bottom: 30px;
+  }
+
+  .deg_acc {
+    margin: 10px 0px;
+  }
+
+  .acc_container {
+    font-size: 9px;
+    padding: 0px;
+  }
+
+  #he .buttoning {
+    margin: 0px;
+  }
+  .buttoning button {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 335px) {
-  #degreess ul li{
+  #degreess ul li {
     font-size: 7.4px;
   }
-  
-  .degree{
-    padding:10px;
+
+  .degree {
+    padding: 10px;
   }
-  
+
   #rightsheety {
     display: none;
   }
@@ -2456,12 +2692,12 @@ h4 {
 
   #degreeback {
     position: relative;
-    top:90px;
+    /* top: 90px; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height:30px;
-    width:50px;
+    height: 30px;
+    width: 50px;
   }
 
   .contactcontainer .contactinputBox {
@@ -2475,6 +2711,12 @@ h4 {
 }
 
 @media (max-width: 321px) {
+  #darkme {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    z-index: 2;
+  }
   #rightsheety {
     display: none;
   }
@@ -2508,14 +2750,14 @@ h4 {
     font-size: 17px;
   }
 
-  #degreeback{
+  #degreeback {
     position: relative;
-    top:90px;
+    /* top: 90px; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height:30px;
-    width:50px;
+    height: 30px;
+    width: 50px;
   }
 
   .contactcontainer .contactinputBox {
@@ -2528,36 +2770,88 @@ h4 {
   }
 }
 
-
-@media (max-width:304px){
-  #c1buttons{
-    height:40px;
+@media (max-width: 304px) {
+  .alert {
+    font-size: 11px;
   }
-  #c1yes, #c1no{
+  #c1buttons {
+    height: 40px;
+  }
+  #c1yes,
+  #c1no {
     font-size: 20px;
-    padding:0px 20px;
+    padding: 0px 20px;
   }
-  .subdiv,.subdiv2{
-    border:5px solid #efefef;
-    margin:9px 9px;
+  .subdiv,
+  .subdiv2 {
+    border: 5px solid #efefef;
+    margin: 9px 9px;
   }
-  .but_container{
-    margin:0px;
+  .but_container {
+    margin: 0px;
   }
-  #big_box{
-    padding:0px;
+  #big_box {
+    padding: 0px;
   }
-  .firstsection, .secondsection{
+  .firstsection,
+  .secondsection {
     font-size: 17px;
   }
-
 }
 
-@media (max-width:281px){
-  #form{
-    border:0px;
+@media (max-width: 281px) {
+  #form {
+    border: 0px;
   }
-  #mixbox{
-    border-width:2px;
+  #mixbox {
+    border-width: 2px;
   }
+}
+
+/* Dark Mode */
+.darkmodeon {
+  background: #002e4d;
+}
+.darkmodeon #body1::after {
+  background-image: linear-gradient(147deg, #1c243d 0%, #002e4d 74%);
+}
+
+.darkmodeon #D {
+  -webkit-filter: invert(100%);
+  filter: invert(100%) saturate(5);
+}
+
+.darkmodeon .mainheading {
+  background: #00183f;
+}
+
+.darkmodeon #start {
+  color: #efefef;
+  border: 2px solid #f1f1f1;
+}
+
+.darkmodeon #start:hover {
+  color: #00437c;
+  background: #efefef;
+  border: 2px solid #f1f1f1;
+}
+
+.darkmodeon #text {
+  color: #efefef;
+}
+
+.darkmodeon #he {
+  color: #e2e2e2;
+}
+
+.darkmodeon .acc_container {
+  color: #efefef;
+}
+
+.darkmodeon #body3 {
+  background: linear-gradient(#002e4d, #002e4d, #1a032b);
+}
+
+.darkmodeon #body3 h1 {
+  color: #efefef;
 }

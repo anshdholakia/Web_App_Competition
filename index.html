@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master's Degree Web App | Drexel</title>
-    <link rel="shortcut icon" href="static/img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/css/final.css">
+    <link rel="stylesheet" href="/static/css/final.css">
     <script src="https://kit.fontawesome.com/9cb3b533ec.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body onload="onload()">
     <!-- Loading page -->
-    <!-- <div class="loading" id="loadpage"><img src="static/img/Drexel-logo.png" alt="Logo"></div> -->
+    <!-- <div class="loading" id="loadpage"><img src="/static/img/Drexel-logo.png" alt="Logo"></div> -->
     <div id="loadpage">
-        <img src="static/img/Drexel-logo.png" alt="Logo">
+        <img src="/static/img/Drexel-logo.png" alt="Logo">
         <div class="loading_bar">
             <div class="bar"></div>
         </div>
@@ -31,6 +31,11 @@
     {% endfor %}
     {% endif %} -->
 
+    <!-- Dark Mode -->
+    <div id="darkme">
+        <input type="checkbox" name="" id="darkmode">
+    </div>
+
 
 
 
@@ -38,13 +43,13 @@
     <section id="body1">
 
         <div id="hamburger">
-            <img src="static/img/dragon.png" alt="" id="dragon">
-            <img src="static/img/D.png" id="D" alt="">
+            <img src="/static/img/dragon.png" alt="" id="dragon">
+            <img src="/static/img/D.png" id="D" alt="">
         </div>
         <div id="menu">
             <div class="linkdiv">
                 <a href="https://drexel.edu/cci/" target="_blank" rel="noopener noreferrer" class="links ccilogo"><img
-                        src="static/img/fulldrexellogo.png" alt=""></a>
+                        src="/static/img/fulldrexellogo.png" alt=""></a>
                 <a href="http://drexel.edu" target="_blank" rel="noopener noreferrer" class="links">University
                     Website</a>
                 <a href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/" target="_blank"
@@ -91,7 +96,7 @@
                         <label>
                             <div class="buttons">
                                 <input type="checkbox" name="checkbox">
-                                <img src="static/img/hciux.jpeg" alt="HCI/UX Image">
+                                <img src="/static/img/hciux.jpeg" alt="HCI/UX Image">
                                 <h3>HCI/UX</h3>
                                 </input>
                             </div>
@@ -101,12 +106,10 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(HCI/UX)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`HCI/UX`,`Front-End Development`,`Technical Certificate`])" >
+                                title="Preffered Combinations (HCI/UX)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`HCI/UX`,`Front-End Development`])" >
                                 <div class="smallboxinbutton">HCI/UX</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Front-End Development</div>
-                                <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Technical Certificate</div>
+                                <div class="smallboxinbutton">Front-End Development</div>                                
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
 
@@ -142,12 +145,12 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Information Systems)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Information Systems`,`Cybersecurity*`,`Software Architecture*`])" >
+                                title="Preffered Combinations (Information Systems)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Information Systems`,`Cybersecurity`,`Software Architecture`])" >
                                 <div class="smallboxinbutton">Information Systems</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Cybersecurity*</div>
+                                <div class="smallboxinbutton">Cybersecurity</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Software Architecture*</div>
+                                <div class="smallboxinbutton">Software Architecture</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
 
@@ -170,7 +173,7 @@
                     <div class="subdiv" name="Foundations of Data Science" id="3">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
-                                <img src="https://source.unsplash.com/400x300/weekly?Data-Science
+                                <img src="https://source.unsplash.com/400x300/weekly?Machine
                                 " alt="Foundations of Data Science">
                                 <h3>Foundations of Data Science</h3>
                                 </input>
@@ -180,13 +183,13 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Foundations of Data Science)" data-trigger="focus"
-                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Foundations of Data Science`,`Artificial Intelligence/Machine Learning*`,`Advanced Computer Science*`])" >
+                                title="Preffered Combinations (Foundations of Data Science)" data-trigger="focus"
+                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Foundations of Data Science`,`Artificial Intelligence/Machine Learning`,`Advanced Computer Science`])" >
                                 <div class="smallboxinbutton">Foundations of Data Science</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">AI & ML*</div>
+                                <div class="smallboxinbutton">AI & ML</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Advanced Computer Science*</div>
+                                <div class="smallboxinbutton">Advanced Computer Science</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
                         <div class="description">
@@ -203,12 +206,12 @@
                     </div>
 
 
-                    <div class="subdiv" name="Artificial Intelligence/Machine Learning*" id="4">
+                    <div class="subdiv" name="Artificial Intelligence/Machine Learning" id="4">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
                                 <img src="https://source.unsplash.com/400x300/weekly?Robot
                                 " alt="Artificial Intelligence/Machine Learning">
-                                <h3>AI & ML*</h3>
+                                <h3>AI & ML</h3>
                                 </input>
                             </div>
                         </label>
@@ -216,12 +219,12 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(AI & ML*)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Artificial Intelligence/Machine Learning*`,`Foundations of Data Science`,`Advanced Computer Science*`])" >
-                                <div class="smallboxinbutton">AI & ML*</div>
+                                title="Preffered Combinations (AI & ML)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Artificial Intelligence/Machine Learning`,`Foundations of Data Science`,`Advanced Computer Science`])" >
+                                <div class="smallboxinbutton">AI & ML</div>
                                 <h6>&nbsp; + &nbsp;</h6>
                                 <div class="smallboxinbutton">Foundations of Data Science</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Advanced Computer Science*</div>
+                                <div class="smallboxinbutton">Advanced Computer Science</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
                         <div class="description">
@@ -243,7 +246,7 @@
                     <div class="subdiv" name="Technology Leadership" id="5">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
-                                <img src="https://source.unsplash.com/400x300/weekly?Technology,Leadership
+                                <img src="https://source.unsplash.com/400x300/weekly?Technology
                                 " alt="Technology Leadership">
                                 <h3>Technology Leadership</h3>
                                 </input>
@@ -253,12 +256,11 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Technology Leadership)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Technology Leadership`,`Cybersecurity*`,`Technical Certificate`])" >
+                                title="Preffered Combinations (Technology Leadership)" data-trigger="focus"
+                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Technology Leadership`,`Cybersecurity`])" >
                                 <div class="smallboxinbutton">Technology Leadership</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Cybersecurity*</div>
-                                <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton" >Technical Certificate</div>
+                                <div class="smallboxinbutton">Cybersecurity</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
                         <div class="description">
@@ -275,12 +277,12 @@
                     </div>
 
 
-                    <div class="subdiv" name="Cybersecurity*" id="6">
+                    <div class="subdiv" name="Cybersecurity" id="6">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
                                 <img src="https://source.unsplash.com/400x300/weekly?Cybersecurity
                                 " alt="Cybersecurity">
-                                <h3>Cybersecurity*</h3>
+                                <h3>Cybersecurity</h3>
                                 </input>
                             </div>
                         </label>
@@ -288,8 +290,8 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Cybersecurity*)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Cybersecurity*`,`Information Systems`])" >
-                                <div class="smallboxinbutton">Cybersecurity*</div>
+                                title="Preffered Combinations (Cybersecurity)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Cybersecurity`,`Information Systems`])" >
+                                <div class="smallboxinbutton">Cybersecurity</div>
                                 <h6>&nbsp; + &nbsp;</h6>
                                 <div class="smallboxinbutton">Information Systems</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
@@ -321,11 +323,11 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Computer Science Foundations)" data-trigger="focus"
-                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Computer Science Foundations`,`Advanced Computer Science*`])" >
+                                title="Preffered Combinations (Computer Science Foundations)" data-trigger="focus"
+                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Computer Science Foundations`,`Advanced Computer Science`])" >
                                 <div class="smallboxinbutton">Computer Science Foundations</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Advanced Computer Science*</div>
+                                <div class="smallboxinbutton">Advanced Computer Science</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
                         <div class="description">
@@ -341,12 +343,12 @@
                         </div>
                     </div>
 
-                    <div class="subdiv" name="Advanced Computer Science*" id="8">
+                    <div class="subdiv" name="Advanced Computer Science" id="8">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
                                 <img src="https://source.unsplash.com/400x300/weekly?Advanced Computer Science
-                                " alt="Advanced Computer Science*">
-                                <h3 class="smallerh3">Advanced Computer Science*</h3>
+                                " alt="Advanced Computer Science">
+                                <h3 class="smallerh3">Advanced Computer Science</h3>
                                 </input>
                             </div>
                         </label>
@@ -354,9 +356,9 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Advanced Computer Science)" data-trigger="focus"
-                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Advanced Computer Science*`,`Computer Science Foundations`])" >
-                                <div class="smallboxinbutton">Advanced Computer Science*</div>
+                                title="Preffered Combinations (Advanced Computer Science)" data-trigger="focus"
+                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Advanced Computer Science`,`Computer Science Foundations`])" >
+                                <div class="smallboxinbutton">Advanced Computer Science</div>
                                 <h6>&nbsp; + &nbsp;</h6>
                                 <div class="smallboxinbutton">Computer Science Foundations</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
@@ -375,12 +377,12 @@
                         </div>
                     </div>
 
-                    <div class="subdiv" name="Software Architecture*" id="9">
+                    <div class="subdiv" name="Software Architecture" id="9">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
                                 <img src="https://source.unsplash.com/400x300/weekly?computer-system
                                 " alt="Software Architecture">
-                                <h3>Software Architecture*</h3>
+                                <h3>Software Architecture</h3>
                                 </input>
                             </div>
                         </label>
@@ -388,13 +390,13 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Software Architecture*)" data-trigger="focus"
-                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Software Architecture*`,`Computer Science Foundations`,`Technical Certificate`,`Advanced Computer Science*`])" >
-                                <div class="smallboxinbutton">Software Architecture*</div>
+                                title="Preffered Combinations (Software Architecture)" data-trigger="focus"
+                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Software Architecture`,`Computer Science Foundations`,`Advanced Computer Science`])" >
+                                <div class="smallboxinbutton">Software Architecture</div>
                                 <h6>&nbsp; + &nbsp;</h6>
                                 <div class="smallboxinbutton">Computer Science Foundations</div>
                                 <h6>&nbsp; + &nbsp;</h6>
-                                <div class="smallboxinbutton">Advanced Computer Science*</div>
+                                <div class="smallboxinbutton">Advanced Computer Science</div>
                             </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
                         <div class="description">
@@ -413,7 +415,7 @@
                     <div class="subdiv" name="Front-End Development" id="10">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
-                                <img src="https://source.unsplash.com/400x300/weekly?Websites
+                                <img src="https://source.unsplash.com/400x300/weekly?Developer
                             " alt="Front-End Development">
                                 <h3>Front-End Development</h3>
                                 </input>
@@ -423,7 +425,8 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Front-End Development)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Front-End Development`,`HCI/UX`,`Computer Science Foundations`])" >
+                                title="Preffered Combinations (Front-End Development)" data-trigger="focus"
+                                data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Front-End Development`,`HCI/UX`,`Computer Science Foundations`])" >
                             <div class="smallboxinbutton">Front-End Development</div>
                             <h6>&nbsp; + &nbsp;</h6>
                             <div class="smallboxinbutton">HCI/UX</div>
@@ -447,7 +450,7 @@
                     <div class="subdiv" name="Health Informatics" id="11">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
-                                <img src="https://source.unsplash.com/400x300/weekly?Health,Informatics
+                                <img src="https://source.unsplash.com/400x300/weekly?biology
                             " alt="Health Informatics">
                                 <h3>Health Informatics</h3>
                                 </input>
@@ -457,7 +460,7 @@
                             <div class="firstsection">Description</div>
                             <div class="section1"></div>
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Health Informatics)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Health Informatics`,`Computer Science Foundations`])" >
+                                title="Preffered Combinations (Health Informatics)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Health Informatics`,`Computer Science Foundations`])" >
                             <div class="smallboxinbutton">Health Informatics</div>
                             <h6>&nbsp; + &nbsp;</h6>
                             <div class="smallboxinbutton">Computer Science Foundations</div>
@@ -477,39 +480,7 @@
                     </div>
 
 
-                    <div class="subdiv" name="Technical Certificate" id="12">
-                        <label>
-                            <div class="buttons"><input type="checkbox" name="checkbox">
-                                <img src="https://source.unsplash.com/400x300/weekly?Certificate
-                            " alt="Technical Certificate">
-                                <h3>Technical Certificate</h3>
-                                </input>
-                            </div>
-                        </label>
-                        <div class="button_info">
-                            <div class="firstsection">Description</div>
-                            <div class="section1"></div>
-                            <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Technical Certificate)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Technical Certificate`,`Computer Science Foundations`])" >
-                            <div class="smallboxinbutton">Technical Certificate</div>
-                            <h6>&nbsp; + &nbsp;</h6>
-                            <div class="smallboxinbutton">Computer Science Foundations</div>                                
-                        </button>' data-html="true" data-placement="bottom">Combinations</button>
-                        </div>
-                        <div class="description">
-                            <span class="cross">&#10006;</span>
-                            <h7>
-                                Whether you are just starting out, or you are a seasoned professional, certification can
-                                help you become a high-value commodity to your employer and be among the most
-                                sought-after individuals in your industry. For more <a
-                                    href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/"
-                                    target="_blank" rel="noopener noreferrer">Information</a>
-                            </h7>
-
-                        </div>
-                    </div>
-
-                    <div class="subdiv" name="Community-based Librarianship" id="13">
+                    <div class="subdiv" name="Community-based Librarianship" id="12">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
                                 <img src="https://source.unsplash.com/400x300/weekly?Librarian"
@@ -523,7 +494,7 @@
                             <div class="section1"></div>
 
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Community-based Librarianship)" data-trigger="focus"
+                                title="Preffered Combinations (Community-based Librarianship)" data-trigger="focus"
                                 data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Community-based Librarianship`,`HCI/UX`])" >
                             <div class="smallboxinbutton">Community-based Librarianship</div>
                             <h6>&nbsp; + &nbsp;</h6>
@@ -549,7 +520,7 @@
                         </div>
                     </div>
 
-                    <div class="subdiv" name="Applied Data Science" id="14">
+                    <div class="subdiv" name="Applied Data Science" id="13">
                         <label>
                             <div class="buttons"><input type="checkbox" name="checkbox">
                                 <img src="https://source.unsplash.com/400x300/weekly?Data
@@ -563,12 +534,12 @@
                             <div class="section1"></div>
 
                             <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
-                                title="Preffered Combinations(Flower Watering)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Applied Data Science`,`Foundations of Data Science`,`Artificial Intelligence/Machine Learning*`])" >
+                                title="Preffered Combinations (Applied Data Science)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`Applied Data Science`,`Foundations of Data Science`,`Artificial Intelligence/Machine Learning`])" >
                             <div class="smallboxinbutton">Applied Data Science</div>
                             <h6>&nbsp; + &nbsp;</h6>
                             <div class="smallboxinbutton">Foundations of Data Science</div>                                
                             <h6>&nbsp; + &nbsp;</h6>
-                            <div class="smallboxinbutton">Artificial Intelligence/Machine Learning*</div>                                
+                            <div class="smallboxinbutton">Artificial Intelligence/Machine Learning</div>                                
                         </button>' data-html="true" data-placement="bottom">Combinations</button>
                         </div>
 
@@ -586,7 +557,40 @@
                         </div>
                     </div>
 
+                    <div class="subdiv" name="App Development" id="14">
+                        <label>
+                            <div class="buttons"><input type="checkbox" name="checkbox">
+                                <img src="https://source.unsplash.com/400x300/weekly?App
+                            " alt="Applied Data Science">
+                                <h3>App Development</h3>
+                                </input>
+                            </div>
+                        </label>
+                        <div class="button_info">
+                            <div class="firstsection">Description</div>
+                            <div class="section1"></div>
 
+                            <button type="button" class="btn btn-lg secondsection" data-toggle="popover"
+                                title="Preffered Combinations (App Development)" data-trigger="focus" data-content='<button type = "button" class = "buttonforcomb" onclick="combine.apply(null, [`App Development`,`HCI/UX`,`Front-End Development`])" >
+                            <div class="smallboxinbutton">App Development</div>                      
+                            <h6>&nbsp; + &nbsp;</h6>
+                            <div class="smallboxinbutton">HCI/UX</div>                                
+                            <h6>&nbsp; + &nbsp;</h6>
+                            <div class="smallboxinbutton">Front-End Development</div>                                
+                        </button>' data-html="true" data-placement="bottom">Combinations</button>
+                        </div>
+
+                        <div class="description">
+                            <span class="cross">&#10006;</span>
+                            <h7>
+                                The App Development certificate provides an immersive experience to the user in the
+                                field of app making and developing. For more <a
+                                    href="https://www.ibm.com/in-en/services/applications/development?p1=Search&p4=43700057189911016&p5=b&cm_mmc=Search_Google-_-1S_1S-_-AS_IN-_-%2Bapplication%20%2Bdevelopment_b&cm_mmca7=71700000072587733&cm_mmca8=kwd-18578398450&cm_mmca9=EAIaIQobChMIwMb7k4Lz7QIVmhsrCh0SAg-fEAAYASAAEgLgmvD_BwE&cm_mmca10=463564335259&cm_mmca11=b&gclid=EAIaIQobChMIwMb7k4Lz7QIVmhsrCh0SAg-fEAAYASAAEgLgmvD_BwE&gclsrc=aw.ds"
+                                    target="_blank" rel="noopener noreferrer">Information</a>
+                            </h7>
+
+                        </div>
+                    </div>
 
                 </div>
 
@@ -621,6 +625,200 @@
 
         </form>
 
+
+    </section>
+
+
+    <section id="listofdegrees">
+        <div id="he">
+            <h1>Master's Degrees at Drexel CCI</h1>
+            <div class="buttoning">
+                <button type="button" class="btn btn-dark" id="openall">Open All</button>
+                <button type="button" class="btn btn-dark" id="collapseall">Collapse All</button>
+            </div>
+        </div>
+        <ul id="deg">
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Information - HCI/UX
+                    <i class="fa fa-plus-square-o"></i>
+                </button>
+                <div class="acc_container">
+                    Human-Computer Interaction and User Experience (HCI/UX) is a graduate major that explores creative
+                    ideas, theories, and technologies to advance students’ understanding of the complex and tightly
+                    coupled relationships between people and computing systems. The program prepares students to create
+                    and evaluate technologies that support and complement human needs and abilities in a broad range of
+                    contexts such as work, wellness, home, entertainment, and artistic expression. The HCI/UX major is
+                    part of the Master of Science in Information (MSI), which prepares students for a range of careers
+                    related to user experience research, interface design, and software development. For more
+                    information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/humancomputerinteractionanduserexperience/index.html"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Data Science
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The Master of Science in Data Science program provides a strong foundation in the emerging area of
+                    data science with foci on data management and accountability, visualization and communication, and
+                    computational, algorithmic, and applied processing techniques. Students gain competency in
+                    fundamental methods and techniques for data collection, management, analysis, and result
+                    interpretation. Their fundamental understanding and skills will be applied to real-world data
+                    analysis tasks through state-of-the-art technologies, tools, and platforms. For more information go
+                    to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/datascience/index.html"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Computer Science
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The Department of Computer Science in the College of Computing & Informatics houses research groups
+                    actively conducting research on a wide range of topics in Computer Science including artificial
+                    intelligence, algorithms, computer vision and graphics, programming languages, networks, privacy and
+                    security, high-performance computing, software engineering, computer algebra, and algorithms. The
+                    department emphasizes both interdisciplinary and applied research and is supported by major federal
+                    research grants from the National Science Foundation, Department of Defense, Department of Energy,
+                    and the National Institute of Standards and Technology, as well as by private sources. For more
+                    information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/computerscience/"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Information Systems
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The College of Computing & Informatics' Master of Science in Information Systems (MSIS) prepares
+                    students for both the technical and real-world aspects of creating and managing information systems.
+                    The program is offered both online and on campus, part-time and full-time. For more information go
+                    to <a href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/informationsystems/"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Health Informatics
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The Master of Science in Health Informatics (MSHI) at the College of Computing & Informatics
+                    prepares graduates to use data, information and knowledge for scientific inquiry and problem solving
+                    to improve health outcomes. The program addresses the challenges and opportunities encountered as
+                    healthcare transforms itself into a digital, patient-centered system. The inter-disciplinary nature
+                    of the MSHI program brings clinicians and IT professionals together to analyze problems and develop
+                    solutions through the application of advanced information technology. For more information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/healthinformatics/"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Artificial Intelligence and Machine Learning
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The Master of Science in Artificial Intelligence and Machine Learning provides a strong foundation
+                    in the artificial intelligence and machine learning fields with foci on mathematical foundations,
+                    algorithms, tools, and applications as they pertain to artificial intelligence and machine learning.
+                    Students will gain competency in fundamental methods and techniques in artificial intelligence and
+                    machine learning. Their fundamental understanding will be applied to real data sets and data
+                    analysis tasks with the help of state-of-the-art technologies, tools, and platforms. The Master of
+                    Science in Artificial Intelligence and Machine Learning program culminates with a two-term capstone
+                    experience where students work on a real world or research problem using the knowledge they have
+                    gained throughout the program. For more information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/artificialintelligenceandmachinelearning/index.html"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Digital Content Management
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The Digital Content Management (DCM) major prepares students with the skills and knowledge to
+                    effectively create, manage, and leverage digital content. Students gain first-hand experience
+                    working with a variety of enterprise content management systems, and addressing real-world digital
+                    content management challenges through a capstone experience. The DCM major is part of the Master of
+                    Science in Information (MSI) that prepares students for a range of information and data-oriented
+                    professional careers with critical content management skills. For more information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/digitalcontentmanagement/index.html"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Information Science
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The College of Computing & Informatics' on-campus PhD in Information Science program prepares
+                    students to become creative, interdisciplinary researchers with foundations in information science,
+                    data science, and human-centered computing. For more information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/informationsciencephd"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Library and Information Science
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The Library and Information Science (LIS) graduate major integrates information technology,
+                    professional knowledge, and interdisciplinary, experiential learning to prepare our graduates to
+                    lead and innovate in libraries, archives, museums, and information organizations. The LIS graduate
+                    major in the MSI program is accredited by the American Library Association (ALA) since 1924, and is
+                    one of the one of the oldest continuously operating LIS graduate programs in North America. For more
+                    information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/libraryandinformationscience/"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+            <li class="deg_acc">
+                <button class="deg_but" type="button">
+                    Master of Science in Software Engineering
+                    <i class="fa fa-plus-square-o"></i>
+
+                </button>
+                <div class="acc_container">
+                    The College of Computing & Informatics' Master of Science in Software Engineering (MSSE) program was
+                    created in response to the growing importance of software in modern society and the rapid rise in
+                    demand for professional software engineers. For more information go to <a
+                        href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/softwareengineering/"
+                        target="_blank" rel="noopener noreferrer">site</a>
+
+                </div>
+            </li>
+        </ul>
+        <hr>
 
     </section>
 
@@ -679,7 +877,8 @@
                             </div>
                             <i class="fa fa-plus-square-o"></i>
                         </button>
-                        <div class="degreecontent">Your choices - resulted in a high percentage in degree. To find out more about this degree go to </div>
+                        <div class="degreecontent">Your choices - resulted in a high percentage in degree. To find out
+                            more about this degree go to </div>
 
                     </li>
 
@@ -909,10 +1108,10 @@
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
 
-<script src="static/js/vanilla-tilt.js"></script>
+<script src="/static/js/vanilla-tilt.js"></script>
 
 
-<script src="static/js/tether.js"></script>
+<script src="/static/js/tether.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -931,16 +1130,14 @@
 
 <script src="https://unpkg.com/three@0.123.0/examples/js/loaders/GLTFLoader.js"></script>
 
-<!-- <script src="static/js/canvas.js"></script> -->
-
-<script src="static/js/durocket.js"></script>
+<script src="/static/js/durocket.js"></script>
 
 
 
 <!-------------------------------------------------------------->
 
 
-<script src="static/js/final.js"></script>
+<script src="/static/js/final.js"></script>
 
 
 
