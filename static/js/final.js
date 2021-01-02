@@ -211,7 +211,7 @@ document.getElementById("goleft").addEventListener('click', () => {
 })
 
 document.getElementById("goright").addEventListener('click', () => {
-    var real_length = lenoful - 740;
+    var real_length = lenoful - 700;
 
     if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) != -real_length) {
         if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) - 300 > -real_length) {
