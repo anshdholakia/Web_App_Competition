@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="static/img/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="static/css/final.css">
+    <link rel="stylesheet" href="static/css/final.css">
     <script src="https://kit.fontawesome.com/9cb3b533ec.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -35,6 +35,9 @@
     <div id="darkme">
         <input type="checkbox" name="" id="darkmode">
     </div>
+
+
+
 
     <!-- Home page -->
     <section id="body1">
@@ -86,6 +89,27 @@
 
         <form id="form">
             <div class="container" id="big_box">
+
+                <div id="certi_carousel">
+                    <i class="fa fa-angle-left" id="goleft"></i>
+                    <ul id="certi_ul">
+                        <li class="certi_li">HCI/UX</li>
+                        <li class="certi_li">Information Systems</li>
+                        <li class="certi_li">Foundations of Data Science</li>
+                        <li class="certi_li">Artificial Intelligence/Machine Learning</li>
+                        <li class="certi_li">Technology Leadership</li>
+                        <li class="certi_li">Cybersecurity</li>
+                        <li class="certi_li">Computer Science Foundations</li>
+                        <li class="certi_li">Advanced Computer Science</li>
+                        <li class="certi_li">Software Architecture</li>
+                        <li class="certi_li">Front-End Development</li>
+                        <li class="certi_li">Health Informatics</li>
+                        <li class="certi_li">Community-based Librarianship</li>
+                        <li class="certi_li">Applied Data Science</li>
+                        <li class="certi_li">App Development</li>
+                    </ul>
+                    <i class="fa fa-angle-right" id="goright"></i>
+                </div>
 
                 <div class="but_container">
 
@@ -1045,6 +1069,13 @@
                 <div class="contacttextBox">
                     <textarea name="desc" id="textarea" cols="" rows="4" placeholder="Message (Optional)"></textarea>
                 </div>
+
+                <div class="contactinputBox">
+                    <label>
+                        <input type="checkbox" name="checkbox" id="checkit">
+                        Get updates from the university
+                    </label>
+                </div>
                 <button for="submit" type="submit" id="contactbutton">Submit</button>
             </div>
 
@@ -1067,6 +1098,68 @@
         </ul>
 
     </section>
+
+
+    <footer>
+        <div class="footer_container">
+            <div class="footercontainer1">
+                <a href="http://drexel.edu" target="_blank" rel="noopener noreferrer">
+                    <h2>Drexel University</h2>
+                </a>
+                <a href="http://drexel.edu" target="_blank" rel="noopener noreferrer">
+                    <img src="static/img/Drexel-logo.png" alt=""></a>
+
+            </div>
+            <h4>
+                Drexel University is a private research university with its main campus in Philadelphia, Pennsylvania.
+                It was founded in 1891 by Anthony J. Drexel, a financier and philanthropist. Founded as Drexel Institute
+                of Art, Science, and Industry, it was renamed Drexel Institute of Technology in 1936, before assuming
+                its current name in 1970. <a href="http://" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+            </h4>
+
+        </div>
+        <div class="quicklinks">
+            <h2>Quick Links</h2>
+            <ul class="quickul">
+                <li>
+                    <a href="http://drexel.edu" target="_blank" rel="noopener noreferrer" class="links">University
+                        Website</a>
+                </li>
+
+                <li>
+                    <a href="http://catalog.drexel.edu/graduate/collegeofcomputingandinformatics/" target="_blank"
+                        rel="noopener noreferrer" class="links">CCI Catalog</a>
+                </li>
+
+                <li>
+                    <a href="http://catalog.drexel.edu/certificates/" target="_blank" rel="noopener noreferrer"
+                        class="links">Certificate Programs</a>
+                </li>
+
+                <li>
+                    <a href="http://catalog.drexel.edu/" target="_blank" rel="noopener noreferrer"
+                        class="links">2020-2021
+                        Drexel Catalog</a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="location">
+            <h2>Contact Info</h2>
+            <ul class="info">
+                <li>
+                    <span><i class="fa fa-map-marker"></i></span>
+                    <span>3141 Chestnut St, Philadelphia,<br> PA 19104,<br> United States</span>
+                </li>
+                <li>
+                    <span><i class="fa fa-phone"></i></span>
+                    <span><a href="tel:+1 2158952000">+1 215-895-2000</a></span>
+                </li>
+                
+            </ul>
+        </div>
+
+    </footer>
 
     <section id="body4">
         <h1>Looks like you have reached the end</h1>
@@ -1095,9 +1188,6 @@
         <div id="canvas"></div>
     </section>
 
-
-
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -1105,10 +1195,10 @@
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
 
-<script src="static/js/vanilla-tilt.js" type="text/javascript"></script>
+<script src="static/js/vanilla-tilt.js"></script>
 
 
-<script src="static/js/tether.js" type="text/javascript"></script>
+<script src="static/js/tether.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -1123,18 +1213,18 @@
 
 
 <!-- Code for the Drexel Rocket -->
-<script src="https://unpkg.com/three@0.123.0/build/three.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/three@0.123.0/build/three.min.js"></script>
 
-<script src="https://unpkg.com/three@0.123.0/examples/js/loaders/GLTFLoader.js" type="text/javascript"></script>
+<script src="https://unpkg.com/three@0.123.0/examples/js/loaders/GLTFLoader.js"></script>
 
-<script src="static/js/durocket.js" type="text/javascript"></script>
+<script src="static/js/durocket.js"></script>
 
 
 
 <!-------------------------------------------------------------->
 
 
-<script src="static/js/final.js" type="text/javascript"></script>
+<script src="static/js/final.js"></script>
 
 
 

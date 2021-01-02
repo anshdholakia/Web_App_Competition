@@ -1,61 +1,4 @@
-// var dict={"1":0,"2":0,"3":0, "4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0};
-
-// function getin(name) {
-
-//     console.log(dict[name]);
-
-//     if (dict[name]==0){
-//         dict[name]+=1;
-//         document.getElementById(name).style.position='absolute';
-//     }
-//     else if(dict[name]==1){
-//         dict[name]-=1;
-//         document.getElementById(name).style.position='relative';
-//     }
-
-//     // document.getElementById(name).style.position='absolute';
-
-// }
-
-// document.querySelectorAll('.buttons').forEach(button =>{
-//     const checkbox=button.nextElementSibling;
-//     button.addEventListener('click',()=>{
-//         button.classList.toggle('buttons--active');
-//         if(button.classList.contains('buttons--active')){
-//             // accordContent.style.display='absolute';
-//         } else{
-//             // accordContent.style.display = 'relative';
-
-//         }
-//     });
-// });
-
-// var checkbox = document.querySelector("input[name=checkbox]");
-
-// checkbox.addEventListener('change', function() {
-//   if (this.checked) {
-//     console.log("Checkbox is checked..");
-//   } else {
-//     console.log("Checkbox is not checked..");
-//   }
-// });
-{/* <input type="checkbox" name="checkbox" /> */ }
-
-// if($(button,'#reverse').length == 1) { // checks if the element is in the second column
-//     $(button).clone().appendTo("#reverse");
-
-// }
-
-// if($(button,'#but_container1').length == 1) { // checks if the element is in the first column
-//     clone = $(button).clone(true).appendTo("#but_container1");
-
-// }
-
-
 //-----------------------------------------------------------------------------------------------------------
-
-var scanning = 0;
-
 
 $(document).ready(
 
@@ -100,6 +43,7 @@ $(document).ready(
             }, 1000);
         }
 
+        // Change this-->
         document.getElementById("body2").style.display = "none";
 
 
@@ -109,27 +53,6 @@ $(document).ready(
 
 
 function onload() {
-    //     window.scroll(0,0);
-    //     // var loadpage=document.getElementById("loadpage");
-    //     // loadpage.style.display="none";
-
-    //     var loadpage = document.getElementById("loadpage");
-    //     document.getElementById("body2").style.display="none";
-
-    //     // loadpage.style.position = "absolute";
-    //     // $('html,body').scrollTop(0);
-    //     setTimeout(() => {
-    //         loadpage.style.top = `${-100}%`;
-
-    //     }, 1500);
-
-
-
-    //     // setTimeout(() => {
-
-
-    //     // }, 10000);
-    //     $(".alert"). hide();
 
 }
 
@@ -220,38 +143,12 @@ document.getElementById("start").addEventListener('click', () => {
 
 })
 
-// // Coding the ripple effect on buttons
-// const ripple_buttons = document.querySelectorAll('button');
-// ripple_buttons.forEach(abc => {
-//     abc.addEventListener("click", (e) => {
-
-//         let x = e.clientX - e.target.offsetLeft;
-//         let y = e.clientY - e.target.offsetTop;
-
-//         let ripples = document.createElement('span');
-//         ripples.classList.add("rippleit");
-//         ripples.style.left = `${x}px`;
-//         ripples.style.top = `${y}px`;
-
-
-
-//         setTimeout(() => {
-//             ripples.remove();
-
-//         }, 1000);
-
-
-//     })
-
-// })
-
 
 // Initializing the scroll out function
 window.addEventListener('scroll', function () {
     document.getElementById("rightsheety").style.right = `-${window.pageYOffset}px`;
     document.getElementById("darkme").style.top = `${-window.pageYOffset}px`;
 })
-
 
 
 var bigheight = document.getElementById("big_box").getBoundingClientRect().height;
@@ -262,16 +159,76 @@ var allbuttons = document.getElementsByClassName("subdiv");
 var check = 0;
 var list_of_buttons_in_box = [];
 var list_of_flipped_cards = [];
+var scanning = 0;
+var lenoful = 0;
 
 
+// Making the small caraousel
+
+// Finding the width of the list:
+document.querySelectorAll('.certi_li').forEach(b => {
+    lenoful += $(b).outerWidth();
+    b.addEventListener('click', () => {
+        window.location.hash = `#${$(`div[name="${b.innerHTML}"]`).attr('id')}`;
+
+        setTimeout(() => {
+            var url = [location.protocol, '//', location.host, location.pathname].join('');
+            // maybe check if the browser supports history.pushState
+            history.pushState({}, '', url);
+
+        }, 400);
+        $(`div[name="${b.innerHTML}"]`).css('border-color', '#01fe87');
+        setTimeout(() => {
+            $(`div[name="${b.innerHTML}"]`).css('border-color', '#efefef');
+        }, 1000);
+        setTimeout(() => {
+            $(`div[name="${b.innerHTML}"]`).css('border-color', '#01fe87');
+        }, 1200);
+        setTimeout(() => {
+            $(`div[name="${b.innerHTML}"]`).css('border-color', '#efefef');
+        }, 1400);
+        setTimeout(() => {
+            $(`div[name="${b.innerHTML}"]`).css('border-color', '#01fe87');
+        }, 1600);
+        setTimeout(() => {
+            $(`div[name="${b.innerHTML}"]`).css('border-color', '#efefef');
+        }, 2000);
+    })
+
+})
+
+document.getElementById("goleft").addEventListener('click', () => {
+    if ($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4] != 0) {
+        if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) + 300 < 0) {
+            $('.certi_li').css('transform', `translateX(${parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) + 300}px)`);
+        }
+        else {
+            $('.certi_li').css('transform', `translateX(0px)`);
+        }
+
+    }
+
+})
+
+document.getElementById("goright").addEventListener('click', () => {
+    var real_length = lenoful - 740;
+
+    if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) != -real_length) {
+        if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) - 300 > -real_length) {
+            $('.certi_li').css('transform', `translateX(${parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) - 300}px)`);
+        }
+        else {
+            $('.certi_li').css('transform', `translateX(${-real_length}px)`);
+        }
+
+    }
+
+})
 
 
-
-
-// Unchecking the checked boxes after checked boxes are 3-------------------------------------------------------------------------
+// Unchecking the checked boxes after checked boxes are 3--------------------------------------------------------------
 function checking(checked = false) {
     document.querySelectorAll('.subdiv').forEach(buttons => {
-        // console.log(buttons.getAttribute("name"));
         if (list_of_buttons_in_box.includes(buttons.getAttribute("name"))) {
             buttons.querySelector('input[type="checkbox"]').checked = true;
 
@@ -286,11 +243,8 @@ position_list = [[document.getElementById("201").getBoundingClientRect().top, do
 
 // Putting into Box Code-------------------------------------------------------------
 document.querySelectorAll('.subdiv').forEach(button => {
-    // const checkbox=button.nextElementSibling;
     var checkbox = button.querySelector('input[type="checkbox"]');
     var data2 = button.getBoundingClientRect();
-    var data = document.getElementById("mixbox").getBoundingClientRect();
-    // console.log(checkbox);
 
     checkbox.addEventListener('change', () => {
 
@@ -301,15 +255,11 @@ document.querySelectorAll('.subdiv').forEach(button => {
                 audio.play();
 
                 list_of_buttons_in_box.splice(list_of_buttons_in_box.indexOf(button.getAttribute("name")), 1);
-                // console.log("The list after popping: ", button.getAttribute("name"), ": ", list_of_buttons_in_box);
-
-                // button.classList.remove('buttons--active');
 
                 if (window.innerWidth <= 890) { // If media query matches
                     list_of_buttons_in_box.forEach(element => {
 
                         var element2 = $(`[name='${element}']`);
-                        // console.log(element2)
                         var elements = document.getElementsByName(`${element}`);
                         var id = elements[0].getAttribute('id');
 
@@ -318,8 +268,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                             var left = styles.split(",")[4];
                             var top = styles.split(",")[5];
                             var boxesinmixbox = document.getElementById("201");
-                            // console.log(top);
-                            // console.log(parseInt(top)+$(button).outerHeight()+10);
                             document.getElementById(id).style.transform = `translate3d(${parseInt(left)}px,${parseInt(top) + 30 - $(button).outerHeight() - (parseInt(getComputedStyle(boxesinmixbox).marginLeft) * 2)}px,0px)`;
                         }
 
@@ -330,7 +278,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                     list_of_buttons_in_box.forEach(element => {
 
                         var element2 = $(`[name='${element}']`);
-                        // console.log(element2)
                         var elements = document.getElementsByName(`${element}`);
                         var id = elements[0].getAttribute('id');
 
@@ -339,8 +286,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                             var left = styles.split(",")[4];
                             var top = styles.split(",")[5];
                             var boxesinmixbox = document.getElementById("201");
-                            // console.log(top);
-                            // console.log(parseInt(top)+$(button).outerHeight()+10);
                             document.getElementById(id).style.transform = `translate3d(${parseInt(left) + 30 - $(button).outerWidth() - (parseInt(getComputedStyle(boxesinmixbox).marginLeft) * 2)}px,${parseInt(top)}px,0px)`;
                         }
 
@@ -355,26 +300,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                 VanillaTilt.init(button);
 
                 $(button).css('transform', `translate3d(0px,0px,0px)`);
-
-                // console.log(list_of_buttons_in_box);
-
-
-
-                // window.scrollTo(0, button.top);
-
-                // button.style.zIndex = "auto";
-                // button.style.zIndex = "auto";
-
-
-                // checkbox.classList.remove('hide');
-                // button.style.transition = 'all 0.3s ease-in-out';
-                // button.style.top = 'auto';
-                // button.style.left = `auto`;
-                // var box_data = mixingbox.getBoundingClientRect();
-
-                // mixingbox.style.height = `${box_data.height - $(button).outerHeight() - 10}px`
-
-                // mixingbox.style.top = `${-buttonheight + $(button).outerHeight()}px`;
 
                 check -= 1;
 
@@ -398,11 +323,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                     document.getElementById("hinmixbox").style.backgroundColor = "#1ce409";
                 }
 
-
-                // console.log(bigheight);           
-
-                // console.log("Checkbox is not checked..");
-
             }
 
 
@@ -421,8 +341,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
 
 
             else if (checkbox.checked && check < 3) {
-                // let destroyBox = document.querySelector("#destroy-box");
-                // VanillaTilt.init(destroyBox);
                 button.vanillaTilt.destroy();
 
                 document.getElementById('ins').style.opacity = "1";
@@ -434,15 +352,8 @@ document.querySelectorAll('.subdiv').forEach(button => {
                 var box = document.getElementById("mixbox");
 
                 box.style.display = "flex";
-                // var list= document.getElementById("list");
-                // list.appendChild(button);
-                // checkbox.classList.toggle('hide');
+
                 button.style.transition = 'all 0.3s ease-in-out';
-
-                // box.style.top = `${-buttonheight}px`;
-
-                // button.style.transform = `translate3d(${data.left - data2.left - ($(button).outerWidth() / 2) + 4}px,${data.y - data2.y + 5}px,0px)`;
-                // buttonheight += ($(button).outerHeight() + 10);
 
                 window.location.hash = `#boxheading`;
                 setTimeout(() => {
@@ -453,21 +364,12 @@ document.querySelectorAll('.subdiv').forEach(button => {
                 }, 400);
 
 
-                // box.style.height = `${buttonheight + 15}px`;
-
                 button.style.transform = `translate3d(${position_list[check][1] - data2.left}px,${position_list[check][0] - data2.top}px,0px)`;
 
 
 
                 list_of_buttons_in_box.push(button.getAttribute("name"));
                 button.style.zIndex = "3";
-
-
-                // if(check==0){
-                //     console.log("I am in if and the value of check is",check);  
-                //     box.style.width = `${data2.width + 22}px`;
-                //     width=0;
-                // }
 
                 check += 1;
 
@@ -483,11 +385,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                     document.getElementById("hinmixbox").innerText = "";
                     document.getElementById("hinmixbox").style.backgroundColor = "transparent";
                 }
-                // bigbox.style.height = `${bigheight}`;
-                // console.log(bigheight);
-                // console.log($(height).position().left);
-
-                //   console.log("Checkbox is checked..");
             }
 
 
@@ -506,7 +403,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                         list_of_buttons_in_box.forEach(element => {
 
                             var element2 = $(`[name='${element}']`);
-                            // console.log(element2)
                             var elements = document.getElementsByName(`${element}`);
                             var id = elements[0].getAttribute('id');
 
@@ -515,8 +411,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                                 var left = styles.split(",")[4];
                                 var top = styles.split(",")[5];
                                 var boxesinmixbox = document.getElementById("201");
-                                // console.log(top);
-                                // console.log(parseInt(top)+$(button).outerHeight()+10);
                                 document.getElementById(id).style.transform = `translate3d(${parseInt(left)}px,${parseInt(top) + 30 - $(button).outerHeight() - (parseInt(getComputedStyle(boxesinmixbox).marginLeft) * 2)}px,0px)`;
                             }
 
@@ -527,7 +421,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                         list_of_buttons_in_box.forEach(element => {
 
                             var element2 = $(`[name='${element}']`);
-                            // console.log(element2)
                             var elements = document.getElementsByName(`${element}`);
                             var id = elements[0].getAttribute('id');
 
@@ -536,73 +429,15 @@ document.querySelectorAll('.subdiv').forEach(button => {
                                 var left = styles.split(",")[4];
                                 var top = styles.split(",")[5];
                                 var boxesinmixbox = document.getElementById("201");
-                                // console.log(top);
-                                // console.log(parseInt(top)+$(button).outerHeight()+10);
                                 document.getElementById(id).style.transform = `translate3d(${parseInt(left) + 30 - $(button).outerWidth() - (parseInt(getComputedStyle(boxesinmixbox).marginLeft) * 2)}px,${parseInt(top)}px,0px)`;
                             }
 
                         });
                     }
 
-                    // list_of_buttons_in_box.forEach(element => {
-
-                    //     var element2 = $(`[name='${element}']`);
-                    //     // console.log(element2)
-                    //     var elements = document.getElementsByName(`${element}`);
-                    //     var id = elements[0].getAttribute('id');
-
-
-                    //     if (element2.offset().left > $(button).offset().left) {
-                    //         // console.log("The top of the element you selected: ", $(button).offset().top);
-                    //         // console.log("The top of the element above it: ", element2.offset().top);
-                    //         // console.log("Moving", id, 'at',element2.offset().top + $(button).outerHeight());
-                    //         // console.log("Moving", id, 'at',document.getElementById(id).getBoundingClientRect().height);
-                    //         // console.log("Moving", id, 'at',data.left - data2.left - ($(button).outerWidth() / 2) + 4);
-
-                    //         // If element2.offset().left < $(button).offset().left------------
-
-                    //         // var styles = element2.css('-webkit-transform');
-                    //         // var left = styles.split(",")[4];
-                    //         // var top = styles.split(",")[5];
-                    //         // // console.log(top);
-                    //         // // console.log(parseInt(top)+$(button).outerHeight()+10);
-                    //         // document.getElementById(id).style.transform = `translate3d(${left}px,${parseInt(top)}px,0px)`;
-
-                    //         //------------------------------
-                    //         var styles = element2.css('-webkit-transform');
-                    //         var left = styles.split(",")[4];
-                    //         var top = styles.split(",")[5];
-                    //         var boxesinmixbox = document.getElementById("201");
-                    //         // console.log(top);
-                    //         // console.log(parseInt(top)+$(button).outerHeight()+10);
-                    //         document.getElementById(id).style.transform = `translate3d(${parseInt(left) + 30 - $(button).outerWidth() - (parseInt(getComputedStyle(boxesinmixbox).marginLeft) * 2)}px,${parseInt(top)}px,0px)`;
-                    //     }
-
-                    // });
-
                     VanillaTilt.init(button);
 
                     $(button).css('transform', `translate3d(0px,0px,0px)`);
-
-                    // console.log(list_of_buttons_in_box);
-
-
-
-                    // window.scrollTo(0, button.top);
-
-                    // button.style.zIndex = "auto";
-                    // button.style.zIndex = "auto";
-
-
-                    // checkbox.classList.remove('hide');
-                    // button.style.transition = 'all 0.3s ease-in-out';
-                    // button.style.top = 'auto';
-                    // button.style.left = `auto`;
-                    // var box_data = mixingbox.getBoundingClientRect();
-
-                    // mixingbox.style.height = `${box_data.height - $(button).outerHeight() - 10}px`
-
-                    // mixingbox.style.top = `${-buttonheight + $(button).outerHeight()}px`;
 
                     check -= 1;
 
@@ -627,11 +462,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
                         document.getElementById("hinmixbox").style.backgroundColor = "transparent";
                     }
 
-
-                    // console.log(bigheight);           
-
-                    // console.log("Checkbox is not checked..");
-
                 }
 
             }
@@ -645,7 +475,6 @@ document.querySelectorAll('.subdiv').forEach(button => {
 
 function uncheckingallboxesandreturningthemtoplace() {
     document.querySelectorAll(".subdiv").forEach(boxe => {
-        // console.log(buttons.getAttribute("name"));
         boxe.querySelector('input[type="checkbox"]').checked = false;
         VanillaTilt.init(boxe);
         $(boxe).css('transform', `translate3d(0px,0px,0px)`);
@@ -662,10 +491,8 @@ function combine(item1, item2, item3) {
         if (typeof item3 == 'undefined') {
 
             list_of_buttons_in_box.push(item1);
-            // console.log("Pushing", item2);
             list_of_buttons_in_box.push(item2);
             checking();
-            // console.log(list_of_buttons_in_box);
 
 
 
@@ -703,7 +530,6 @@ function combine(item1, item2, item3) {
             list_of_buttons_in_box.push(item2);
             list_of_buttons_in_box.push(item3);
             checking();
-            // console.log(list_of_buttons_in_box);
 
 
 
@@ -755,18 +581,12 @@ function combine(item1, item2, item3) {
 // Code for the description
 document.querySelectorAll(".firstsection").forEach(desc => {
     desc.addEventListener("click", () => {
-        // console.log("Clicked");
-        // $(desc).closest('div.description').css('transform', 'perspective(1000px) rotateY(360deg)');
         $($($($(desc).parent()).parent()).children("label")).children(".buttons").css('transform', 'perspective(2000px) rotateY(180deg)');
         $($($($(desc).parent()).parent()).children("label")).css('z-index', '0');
         $($($(desc).parent()).parent()).children(".description").css('transform', 'translate3d(0px, 0px, 4px) perspective(2000px) rotateY(360deg)');
         $($($($(desc).parent()).parent()).children(".description")).children(".cross").css('transform', 'translate3d(0px, 0px, 5px)');
         $($($(desc).parent()).parent()).children(".button_info").css('display', 'none');
-        // console.log("Pushed",$($(desc).parent()).parent().attr('name'));
         list_of_flipped_cards.push($($(desc).parent()).parent().attr('name'));
-
-
-        // .style.transform=`perspective(${500}px) rotateY(${360}deg)`
     })
 })
 
@@ -883,8 +703,6 @@ document.getElementById('collapseall').addEventListener('click', () => {
 var path_taken = "";
 
 function submitting() {
-    // var border=document.getElementById("mixbox");
-    // border.style.borderTop="black";
     document.getElementById("submit").classList.toggle('submit--active');
 
     flipbacktonormal();
@@ -1042,9 +860,6 @@ document.getElementById("c1back").addEventListener("click", () => {
 
     document.getElementById("mixbox").style.zIndex = "0";
 
-    // document.getElementById("constraint1").style.left="0%";
-
-    // document.getElementById("constraint1").style.height=`0.1vh`;
     document.getElementById("degree").style.display = "none";
 
     document.getElementById("constraint1").style.top = `0%`;
@@ -1106,9 +921,13 @@ document.getElementById("c1yes").addEventListener('click', () => {
 
     }, 330);
     mastersdegreemaker();
-    document.getElementById("constraint1").style.top = `0%`;
-    document.getElementById("constraint1").style.height = `0vh`;
-    document.getElementById("constraint1").style.left = "-100%";
+    setTimeout(() => {
+        document.getElementById("constraint1").style.top = `0%`;
+        document.getElementById("constraint1").style.height = `0vh`;
+        document.getElementById("constraint1").style.left = "-100%";
+
+    }, 300);
+
     scanning = 0;
 
 
@@ -1120,36 +939,14 @@ document.getElementById("c1yes").addEventListener('click', () => {
 // Code to Select CS Foundations Certificate from the board:
 function CSSelected() {
 
-    if (window.innerWidth <= 890) { // If media query matches
-        document.getElementById("upperteeth").style.top = `-${($(document.getElementById("1")).outerHeight() * 3) + 60}px`
-        document.getElementById("bottomteeth").style.bottom = `-${($(document.getElementById("1")).outerHeight() * 3) + 60}px`;
-    }
-    else {
-        document.getElementById("upperteeth").style.top = `${-$(document.getElementById("1")).outerHeight()}px`;
-        document.getElementById("bottomteeth").style.bottom = `${-$(document.getElementById("1")).outerHeight()}px`;
-    }
-
-    document.getElementById("mixbox").style.zIndex = "0";
-
-    document.getElementById("constraint1").style.top = `0%`;
-    document.getElementById("constraint1").style.height = `0vh`;
-    document.getElementById("constraint1").style.left = "-100%";
-    document.getElementById("constraintno1").style.top = `0%`;
-    document.getElementById("constraintno1").style.height = `0vh`;
-    document.getElementById("constraintno1").style.left = "-100%";
-    document.getElementById("submit").classList.remove('submit--active');
-    document.getElementById("submit").innerHTML = `Generate Degree`;
-    scanning = 0;
-
-    if (check == 3) {
-        checking();
-
+    if (list_of_buttons_in_box.includes('Computer Science Foundations')) {
         var originalText = document.getElementById("alert-info").innerHTML;
 
-        document.getElementById("alert-info").innerHTML = "<strong>Only 3!</strong> &nbsp; You will have to remove a certificate :(";
+        document.getElementById("alert-info").innerHTML = "<strong>Oops!</strong> &nbsp; It is already in the mix";
 
         $(".alert-info").show();
         $(".alert-info").css('top', "3px");
+        $(".alert-info").css('z-index', "100");
 
         setTimeout(() => {
             $(".alert-info").css('top', "-50px");
@@ -1157,34 +954,81 @@ function CSSelected() {
         setTimeout(() => {
             $(".alert-info").hide();
             document.getElementById("alert-info").innerHTML = originalText;
-            // console.log(originalText);
 
         }, 8000);
+
 
     }
 
     else {
-        list_of_buttons_in_box.push('Computer Science Foundations');
-        checking();
 
-        setTimeout(() => {
-            $("div[name='Computer Science Foundations']").css('transform', `translate3d(${document.getElementById("203").getBoundingClientRect().left - document.querySelector(`div[name="Computer Science Foundations"]`).getBoundingClientRect().left}px,${document.getElementById("203").getBoundingClientRect().top - document.querySelector(`div[name="Computer Science Foundations"]`).getBoundingClientRect().top}px,0px)`);
+        if (window.innerWidth <= 890) { // If media query matches
+            document.getElementById("upperteeth").style.top = `-${($(document.getElementById("1")).outerHeight() * 3) + 60}px`
+            document.getElementById("bottomteeth").style.bottom = `-${($(document.getElementById("1")).outerHeight() * 3) + 60}px`;
+        }
+        else {
+            document.getElementById("upperteeth").style.top = `${-$(document.getElementById("1")).outerHeight()}px`;
+            document.getElementById("bottomteeth").style.bottom = `${-$(document.getElementById("1")).outerHeight()}px`;
+        }
 
-            $("div[name='Computer Science Foundations']").css('z-index', '3');
+        document.getElementById("mixbox").style.zIndex = "0";
 
-            check = 3;
+        document.getElementById("constraint1").style.top = `0%`;
+        document.getElementById("constraint1").style.height = `0vh`;
+        document.getElementById("constraint1").style.left = "-100%";
+        document.getElementById("constraintno1").style.top = `0%`;
+        document.getElementById("constraintno1").style.height = `0vh`;
+        document.getElementById("constraintno1").style.left = "-100%";
+        document.getElementById("submit").classList.remove('submit--active');
+        document.getElementById("submit").innerHTML = `Generate Degree`;
+        scanning = 0;
+
+        if (check == 3) {
+            checking();
+
+            var originalText = document.getElementById("alert-info").innerHTML;
+
+            document.getElementById("alert-info").innerHTML = "<strong>Only 3!</strong> &nbsp; You will have to remove a certificate :(";
+
+            $(".alert-info").show();
+            $(".alert-info").css('top', "3px");
+
+            setTimeout(() => {
+                $(".alert-info").css('top', "-50px");
+            }, 7000);
+            setTimeout(() => {
+                $(".alert-info").hide();
+                document.getElementById("alert-info").innerHTML = originalText;
+
+            }, 8000);
 
 
-            document.getElementById("hinmixbox").innerText = "";
-            document.getElementById("hinmixbox").style.backgroundColor = "transparent";
 
-        }, 310);
-        document.querySelector(`div[name='Computer Science Foundations']`).vanillaTilt.destroy();
+        }
 
-        submitting();
+        else {
+            list_of_buttons_in_box.push('Computer Science Foundations');
+            checking();
 
-        path_taken = "ConstraintNO1";
-        // console.log(path_taken);
+            setTimeout(() => {
+                $("div[name='Computer Science Foundations']").css('transform', `translate3d(${document.getElementById("203").getBoundingClientRect().left - document.querySelector(`div[name="Computer Science Foundations"]`).getBoundingClientRect().left}px,${document.getElementById("203").getBoundingClientRect().top - document.querySelector(`div[name="Computer Science Foundations"]`).getBoundingClientRect().top}px,0px)`);
+
+                $("div[name='Computer Science Foundations']").css('z-index', '3');
+
+                check = 3;
+
+
+                document.getElementById("hinmixbox").innerText = "";
+                document.getElementById("hinmixbox").style.backgroundColor = "transparent";
+
+            }, 310);
+            document.querySelector(`div[name='Computer Science Foundations']`).vanillaTilt.destroy();
+
+            submitting();
+
+            path_taken = "ConstraintNO1";
+
+        }
 
     }
 
@@ -1324,8 +1168,6 @@ function mastersdegreemaker() {
             list_of_degrees[9]['score'] += 2;
 
         }
-
-        // var list_of_degrees = [{degree:`Master of Science in Information - HCI/UX`,score:0}, {degree:`Master of Science in Data Science`,score:0},{degree:`Master of Science in Computer Science`,score:0}, {degree:`Master of Science in Information Systems`,score:0}, {degree:`Master of Science in Health Informatics`,score:0}, {degree:`Master of Science in Artificial Intelligence and Machine Learning`,score:0}, {degree:`Master of Science in Digital Content Management`,score:0}, {degree:`Master of Science in Information Science`,score:0}, {degree:`Master of Science in Library and Information Science`,score:0}, {degree:`Master of Science in Software Engineering`,score:0}];
 
         else if (certificate == "Information Systems") {
 
@@ -1547,13 +1389,6 @@ function mastersdegreemaker() {
 
     }
 
-
-    // var totalsum = 0;
-
-    // list_of_degrees.forEach(score => {
-    //     totalsum += score.score;
-    // })
-
     console.log(list_of_degrees);
 
     list_of_degrees.sort(function (a, b) {
@@ -1616,13 +1451,27 @@ document.querySelectorAll(".degreebutton").forEach(accordion_button => {
 
         accordion_button.classList.toggle("degree--active");
         if (accordion_button.classList.contains("degree--active")) {
-            $(accordion_button).parent("li").css("height", "fit-content");
+            $($(accordion_button).parent("li").children('.degreecontent')).css("height", `fit-content`);
+            $($(accordion_button).parent("li").children('.degreecontent')).css("padding", `20px`);
 
         }
         else {
-            $(accordion_button).parent("li").css("height", `${$(accordion_button).outerHeight()}px`);
-
-
+            $($(accordion_button).parent("li").children(".degreecontent")).css('height', "0px");
+            $($(accordion_button).parent("li").children(".degreecontent")).css('padding', "0px");
         }
     })
+})
+
+
+// Coding the heading ->
+document.getElementById("hinmixbox").addEventListener('click',()=>{
+    window.location.hash = `#big_box`;
+
+        setTimeout(() => {
+            var url = [location.protocol, '//', location.host, location.pathname].join('');
+            // maybe check if the browser supports history.pushState
+            history.pushState({}, '', url);
+
+        }, 400);
+    
 })
