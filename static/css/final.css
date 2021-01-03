@@ -2584,6 +2584,9 @@ footer .quicklinks .quickul li a:hover{
   .deg_but {
     font-size: 18px;
   }
+  .acc_container {
+    font-size: 17px;
+  }
 
   #text {
     font-size: 55px;
@@ -2652,7 +2655,11 @@ footer .quicklinks .quickul li a:hover{
     font-size: 35px;
   }
   .deg_but {
-    font-size: 14px;
+    font-size: 17px;
+  }
+  .acc_container{
+    font-size: 16px;
+
   }
 }
 
@@ -2774,7 +2781,10 @@ footer .quicklinks .quickul li a:hover{
     left: 7px;
   }
   .deg_but {
-    font-size: 10px;
+    font-size: 12px;
+  }
+  .acc_container{
+    font-size: 11px;
   }
 
   .smallboxinbutton {
@@ -2801,6 +2811,20 @@ footer .quicklinks .quickul li a:hover{
   .contactcontainer .contactinputBox {
     width: 225px;
     height: 35px;
+  }
+
+  .footer_container h4{
+    font-size: 14px;
+  }
+
+  .footer_container a img{
+    width:100px;
+  }
+  footer{
+    padding:20px;
+  }
+  .footer_container a h2, footer .quicklinks h2, footer .location h2{
+    font-size:27px;
   }
 }
 
@@ -2885,6 +2909,8 @@ footer .quicklinks .quickul li a:hover{
   .buttoning button {
     font-size: 11px;
   }
+  
+  
 }
 
 @media (max-width: 335px) {
@@ -2946,6 +2972,9 @@ footer .quicklinks .quickul li a:hover{
 
   .mainheading {
     margin: 20px;
+  }
+  footer{
+    padding:10px;
   }
 }
 
@@ -3035,6 +3064,10 @@ footer .quicklinks .quickul li a:hover{
   .firstsection,
   .secondsection {
     font-size: 17px;
+  }
+
+  footer .quicklinks .quickul li a{
+    font-size:14px;
   }
 }
 

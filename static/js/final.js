@@ -211,7 +211,7 @@ document.getElementById("goleft").addEventListener('click', () => {
 })
 
 document.getElementById("goright").addEventListener('click', () => {
-    var real_length = lenoful - 700;
+    var real_length = lenoful - 740;
 
     if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) != -real_length) {
         if (parseFloat($('.certi_li').css('transform').split(/[()]/)[1].split(',')[4]) - 300 > -real_length) {
@@ -1351,6 +1351,21 @@ function mastersdegreemaker() {
         else if (certificate == "Applied Data Science") {
             console.log("APPDS");
 
+            list_of_degrees[0]['score'] += 0;
+            list_of_degrees[1]['score'] += 10;
+            list_of_degrees[2]['score'] += 5;
+            list_of_degrees[3]['score'] += 4;
+            list_of_degrees[4]['score'] += 6;
+            list_of_degrees[5]['score'] += 6;
+            list_of_degrees[6]['score'] += 0;
+            list_of_degrees[7]['score'] += 5;
+            list_of_degrees[8]['score'] += 6;
+            list_of_degrees[9]['score'] += 7;
+
+        }
+
+
+        else if(certificate =="Flower Watering"){
             list_of_degrees[0]['score'] += 0;
             list_of_degrees[1]['score'] += 10;
             list_of_degrees[2]['score'] += 5;
